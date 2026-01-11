@@ -1,0 +1,42 @@
+package org.example;
+
+public class CommunicationSatellite extends Satellite {
+    private final double bandwidth;
+    private static final double SEND_DATA_ENERGY_CONSUMPTION = 0.03;
+
+    public CommunicationSatellite(String name, double batteryLevel, double bandwidth) {
+        super(name, batteryLevel);
+        this.bandwidth = bandwidth;
+    }
+
+
+    public double getBandwidth() {
+        return bandwidth;
+    }
+    @Override
+    public void performMission() {
+        if (isActive) {
+            System.out.println(name + ": Передача данных со скоростью " + bandwidth + " Мбит/с");
+            sendData(bandwidth);
+            consumeBattery(SEND_DATA_ENERGY_CONSUMPTION);
+        } else {
+            System.out.println(name + " не может выполнить передачу данных - не активен");
+        }
+    }
+
+    private void sendData(double amountOfData) {
+        if (isActive) {
+            System.out.println(name + ": Отправил " + amountOfData + " Мбит данных!");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "CommunicationSatellite{" +
+                "bandwidth=" + bandwidth +
+                ", name='" + name + '\'' +
+                ", isActive=" + isActive +
+                ", batteryLevel=" + batteryLevel +
+                '}';
+    }
+}
