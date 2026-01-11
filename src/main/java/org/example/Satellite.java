@@ -4,7 +4,7 @@ public abstract class Satellite {
     protected String name;
     protected boolean isActive;
     protected double batteryLevel;
-    private static final double MINIMUM_BATTERY_LEVEL = 0.05;
+    private static final double MINIMUM_BATTERY_LEVEL = 0.20;
 
     public Satellite(String name, double batteryLevel) {
         this.name = name;
@@ -16,10 +16,10 @@ public abstract class Satellite {
     public boolean activate() {
         if (batteryLevel > MINIMUM_BATTERY_LEVEL && !isActive) {
             isActive = true;
-            System.out.println("Спутник " + name + " активирован");
+            System.out.println("✅ " + name + ": Активация успешна");
             return true;
         }
-        System.out.println(name + ": Ошибка активации (заряд: " + batteryLevelToPercent() + "%)");
+        System.out.println("❌ " + name + ": Ошибка активации (заряд: " + batteryLevelToPercent() + "%)");
         return false;
     }
 
