@@ -42,10 +42,14 @@ public class Main {
         System.out.println("-".repeat(CHAR_REPEAT_COUNT));
 
         System.out.println("Запуск проверки деактивации при израсходовании батареи");
+
         commSat2.performMission();
+        commSat2.performMission();
+
         imgSat2.performMission();
         imgSat2.performMission();
         imgSat2.performMission();
+
         System.out.println("-".repeat(CHAR_REPEAT_COUNT));
 
         System.out.println(satConstellation);
